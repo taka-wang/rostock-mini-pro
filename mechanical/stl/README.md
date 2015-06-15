@@ -1,1 +1,2 @@
 - motor end x 3 (change motor_end_height from 44 to 50, add some supports)
+- platform for traxxas x 1
