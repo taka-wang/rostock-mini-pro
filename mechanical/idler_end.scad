@@ -38,7 +38,7 @@ module idler_end() {
 	cylinder(r=1.1, h=26, center=true, $fn=12);
     }
     translate([0, 8, 0]) rotate([90 - tilt, 0, 0])
-      cylinder(r=4, h=40, center=true);
+      cylinder(r=2.5, h=40, center=true);
     for (i = [-1, 1]) for (z = [-7, 7])
       translate([i, -1, z]) screws();
   }

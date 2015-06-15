@@ -2,6 +2,7 @@
 bearing623 = [3, 10, 4];
 bearing624 = [4, 13, 5];
 bearing608 = [8, 22, 7];
+bearing625 = [5, 16, 5];
 bearinglm8uu = [8, 15, 25];
 bearinglm10uu = [10, 19, 29];
 bearinglm12uu = [12, 21, 31];
@@ -24,7 +25,7 @@ motor_end_height = mini ? 44 : 50;
 motor_height_offset = (motor_end_height - 42 - 2)/2; // Height offset of nema 17 motor (we will put at top end of the bracket)
 
 idler_end_height = 28;
-idler_bearing = small_pulley ? bearing624 : bearing608;
+idler_bearing = small_pulley ? bearing624 : bearing625;
 idler_height_offset = idler_bearing[1]/2 + 5; // Height offset of idler (we will put at bottom end of the bracket)
 
 fixing_end_height = 30;
