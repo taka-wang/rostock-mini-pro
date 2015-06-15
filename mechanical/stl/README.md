@@ -1,2 +1,4 @@
 - motor end x 3 (change motor_end_height from 44 to 50, add some supports)
 - platform for traxxas x 1
+- carriage for traxxas x 3
+- idler end x 3 (change bearing from 608 to 625zz)
