@@ -21,7 +21,8 @@ bracket_bracket_length = 30;
 bracket_side_thickness = mini ? 12 : 16;
 bracket_screw_separation = 15;
 
-motor_end_height = mini ? 44 : 50;
+//motor_end_height = mini ? 44 : 50;
+motor_end_height = 50;
 motor_height_offset = (motor_end_height - 42 - 2)/2; // Height offset of nema 17 motor (we will put at top end of the bracket)
 
 idler_end_height = 28;
