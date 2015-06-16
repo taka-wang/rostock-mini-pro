@@ -12,7 +12,7 @@ mini = true; // true = Rostock mini, false = whatever ya want
 small_pulley = mini ? false : true;  // true = 16 thooth GT2, false = 20 tooth GT2
 
 smooth_rod_separation = 60;
-smooth_rod_length = mini ? 450 : 1000;
+smooth_rod_length = mini ? 500 : 1000;
 smooth_rod_radius = mini ? 4 : 6;
 smooth_rod_bearing = mini ? bearinglm8uu : bearinglm12uu;
 
@@ -35,7 +35,7 @@ fixing_ends = mini ? false : true;  // Extra fixing brackets
 motor_end_total = mini ? motor_end_height : 125;
 idler_end_total = mini ? idler_end_height : 80;
 
-platform_thickness = 8;
+platform_thickness = 6;
 platform_hinge_offset = 33;
 
 bed_thickness = 12;
@@ -64,3 +64,14 @@ cup_rad = ball_rad + 1;
 cup_offset = cup_rad-platform_thickness/2;
 
 
+printbed=[180,180]; 
+sanguinololu=false;                  // places mounting holes for the Sanguinololu controller
+carbon_rods=true;                   // turns on option for carbon diagonal rods just for looks!
+frame_thickness=6;                  // 6mm acrylic
+tower_radius = 155*0.9;
+rod_diameter=8;
+
+corner_radius=12;
+frame_radius=(tower_radius-rod_diameter/2-corner_radius)/cos(30);
+//frame_radius = 140;
+echo(str("frame_radius: ",frame_radius," mm"));

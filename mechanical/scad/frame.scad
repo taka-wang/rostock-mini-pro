@@ -11,17 +11,6 @@ module lower_frame() difference() {
 		}
 		circle(r=corner_radius);
 	}
-	// mounting holes PCB
-	translate([0,-10,0])
-	for(x = [-1, 1]) for(y = [-1, 1]) 
-		translate([printbed_screw_spacing[0] / 2 * x, 
-		printbed_screw_spacing[1] / 2 * y, 0]) 
-		circle(r=1.2, $fn = 12, center=true);
-
-	translate([0,printbed[1]/4,0]) minkowski() {
-		square([6,printbed[1]/2],center=true);
-		circle(r=5);
-	}
 
 	// print surface retainer mounts
 	translate([0,-10,0])
@@ -90,21 +79,7 @@ module upper_frame() difference() {
 		for(x=[-1,1]) translate([zip_tie[1]*x,tower_radius/1.4,0]) square(zip_tie,center=true);
 }
 
-module printbed_gasket() difference() {
-	translate([0,-10,0]) square(printbed[0],printbed[1],center=true);
-	// mounting holes PCB
-	translate([0,-10,0])
-	for(x = [-1, 1]) for(y = [-1, 1]) 
-		translate([printbed_screw_spacing[0] / 2 * x, 
-		printbed_screw_spacing[1] / 2 * y, 0]) 
-		circle(r=1.5, $fn = 12, center=true);
-	// slot for wires and thermister
-	translate([0,printbed[1]/4,0]) minkowski() {
-		square([6,printbed[1]/2],center=true);
-		circle(r=5);
-	}
-}
 
 *lower_frame();
 *translate([tower_radius*1.62,tower_radius*0.22,0]) rotate(180) upper_frame();
-*printbed_gasket();
+

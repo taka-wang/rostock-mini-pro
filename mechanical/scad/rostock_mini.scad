@@ -5,13 +5,15 @@ use <bearing.scad>;
 use <nema.scad>;
 use <motor_end.scad>;
 use <idler_end.scad>;
-use <carriage-slim_holder.scad>
-use <platform.scad>;
+use <carriage_for_traxxas.scad>;
+use <platform_for_traxxas.scad>;
 use <rod.scad>;
-use <extruder.scad>;
+use <extruder_v2.scad>;
 
 aluminum = [0.9, 0.9, 0.9];
 steel = [0.8, 0.8, 0.9];
+aqua = [0, 1, 1];
+
 use_stls=false;
 
 //build radius for animation.
@@ -26,8 +28,6 @@ vertical_height=smooth_rod_length-motor_end_height-idler_end_height-frame_thickn
 
 echo(str("Smooth rod length: ",smooth_rod_length," mm"));
 echo(str("Belt length: ",(belt_length*2)+(22*3.14)," mm"));
-echo(str("Build volume: ",round(printbed[0]/25.4),"in x ",
-		round(printbed[1]/25.4),"in x ",vertical_height/25.4,"in"));
 echo(str("Build volume: ",printbed[0],"mm x ",
 		printbed[1],"mm x ",vertical_height,"mm"));
 echo(str("Diagonal rod length: ",rod_length," mm"));
@@ -142,26 +142,20 @@ module rostock()
 		translate([97.79,3.81,-1]) cylinder(r=1.625,h=pcb_thickness*2,$fn = 12);
 	}
 	// extruder
-	rotate(0) translate([-printbed[0]/2+10+2+16,printbed[1]/2-10+6-6.5,motor_end_height-22]) rotate([-90,90,0]) {
+	rotate(0) translate([-printbed[0]/2+10+2+16,printbed[1]/2-10+6-6.5,motor_end_height-21]) rotate([-90,90,0]) {
 		extruder();
 		translate([0,0,13.1]) bracket();
 		translate([14*cos(45),14*cos(45),2.5]) idler();
 		%hardware();
-		motor();
+		%motor();
 	}
 	// heated printbed PCB
 	difference() {
-	color([0.9, 0, 0]) 
+	color([0, 0.31, 1]) 
 	translate([0, -10, motor_end_height+frame_thickness+pcb_thickness/2])
-	cube([printbed[0], printbed[1], pcb_thickness], center=true);
-
-	// mounting holes PCB
-	translate([0,-10,0])
-	for(x = [-1, 1]) for(y = [-1, 1]) 
-		translate([printbed_screw_spacing[0] / 2 * x, 
-		printbed_screw_spacing[1] / 2 * y, motor_end_height+frame_thickness+pcb_thickness/2]) 
-		cylinder(r=1.625,h=pcb_thickness*2, $fn = 12, center=true);
-
+	//cube([printbed[0], printbed[1], pcb_thickness], center=true);
+	cylinder(h = pcb_thickness, r1 = 90, r2 = 90, center = true);
+	
 	}
 }
 
