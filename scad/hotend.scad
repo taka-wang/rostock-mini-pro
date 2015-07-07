@@ -27,7 +27,7 @@ module bowden_clamp() difference() {
 //	cylinder(r=6.9,h=8,$fn=6); // LP
 
 	// M6 pneumatic fitting
-	cylinder(r=4.5,h=14,$fn=32); // LP
+	cylinder(r=4.95,h=14,$fn=32); // LP
 
 	// unnecessary vents
 	for(x=[-15,15]) translate([x,0,-1]) minkowski() {
