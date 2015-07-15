@@ -1,7 +1,7 @@
 include <configuration.scad>
 
 width = 76;
-height = carriage_height;
+height = carriage_height-1;
 
 offset = 25;
 cutout = 13;
